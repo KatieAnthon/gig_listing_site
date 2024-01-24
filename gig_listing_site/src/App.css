@@ -1,0 +1,18 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  width: 15rem;
+}
+
+.main {
+  border: 2px solid #333; /* Set the border color and thickness */
+  padding: 10px; /* Add padding around the box */
+  margin: 20px; /* Add margin around the box */
+  box-shadow: 3px 3px 5px #b6b4b4;
+}
+

@@ -1,0 +1,40 @@
+
+body {
+    background-color: #333; /* Dark grey background */
+    color: white; /* White font color */
+  }
+
+  .Band_name {
+    font-weight: bold;
+    font-size: 30px;
+  }
+  
+
+  .container-box {
+    background-color: rgb(76, 103, 126);
+    border: 2px solid #333; /* Set the border color and thickness */
+    padding: 12px; /* Add padding around the box */
+    margin: 30px; /* Add margin around the box */
+    box-shadow: 3px 3px 5px #f2efef; /* Add a box shadow */
+    font-size: 18px;
+    
+    
+  }
+
+  .description.date_and_time.location {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+    background-color: aliceblue;
+
+  }
+
+  .Image {
+    width: 100%; /* Adjust the width as needed */
+    height: 100%; 
+  }
+
+
+  
