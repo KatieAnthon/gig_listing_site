@@ -16,3 +16,26 @@
   box-shadow: 3px 3px 5px #b6b4b4;
 }
 
+.spinner-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; /* Adjust z-index based on your layout */
+}
+
+.e-spin-overlay {
+  background-color: rgba(233, 22, 22, 0.9); /* Adjust the background color and opacity */
+}
+
+/* Optional: Add styles to the spinner itself */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.e-spinner.e-spin-show {
+  border-top-color: #007bff; /* Adjust the color of the spinner */
+  animation: spin 1s linear infinite;
+}
+
+
