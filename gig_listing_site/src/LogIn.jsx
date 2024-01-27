@@ -7,6 +7,7 @@ const LogIn = () => {
     // sets the initial state to nothing
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("")
+    const [passwordError, setPasswordError] = useState("")
 
     // when a submission to the form is 
     //entered this function is triggered 
@@ -25,6 +26,19 @@ const LogIn = () => {
         setPassword(inputElement.value)
 
     };
+
+    const handleLogin = (event) => {
+        console.log(event.value)
+        event.preventDefault();
+        console.log("Form submitted")
+
+        if (password.length < 8){
+            setPasswordError("Password is too short!")
+            return;
+        }
+        
+        setPasswordError("");
+    }
 
     //handle submit attaches to the form and will execute
     // once the submit button is pressed
@@ -66,7 +80,9 @@ const LogIn = () => {
         
     }
     return (
-    <form onSubmit={handleSubmit}>
+        <>
+        <h2> Log In</h2>
+    <form>
         <label>
             Enter your username:
             <input 
@@ -74,7 +90,7 @@ const LogIn = () => {
             name="username" 
             value={username}
             // on change is the event handler
-            onChange={handleChange}
+            onChange={(e) => setUsername(e.target.value)}
             />
         </label>
         <label>
@@ -87,16 +103,17 @@ const LogIn = () => {
             type ="password"
             name="password" 
             value={password}
-            onChange={ValueCheck}
+            onChange={(e) => setPassword(e.target.value)}
             />
             </label>
             {passwordError && <p style={{ color: "red"}}> {passwordError}</p>}
             <label>
-                Submit
-                <input type="submit" name="submit_password" />
+                <button onClick={handleLogin}>Login</button >
             </label>
     </form>
+    <button> Don't have an account? Register here.</button>
+    </>
     );
 };
 
-export default Form;
+export default LogIn;

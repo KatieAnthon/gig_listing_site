@@ -4,11 +4,15 @@ import Favourited from "./components/favourite"
 import React, { useState, useEffect } from "react";
 import { createSpinner } from '@syncfusion/ej2-popups';
 import { showSpinner, hideSpinner } from '@syncfusion/ej2-popups';
+import LogIn from "./LogIn";
+import { BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
+import { Button, Card, CardBody, CardGroup, Col, Container, Input, InputGroup, InputGroupText, Row, NavLink  } from 'reactstrap'
 
 const App = () => {
 
   const [gigs, setGigs] = useState([]);
   const [favouriteGigs, setFavouriteGigs] = useState([])
+  const [currentForm, setCurrentForm] = useState('login')
 
   useEffect(() => {
 
@@ -62,20 +66,36 @@ const App = () => {
 
   const sortedGigData = gigs.sort(sortedGigsByFavourited);
 
+  const handleLoginButtonClick = () => {
+    setCurrentForm('login');
+
+  }
   return (
     <div>
-      <h1> Welcome to Gig Listings!</h1>
-        <div id="container" className="spinner-target"></div>
-      {sortedGigData.map((gig)=> (
-        <Gig
-        key={gig.event_id}
-        gig={gig}
-        isFavourited={favouriteGigs.includes(gig.event_id)}
-        handleFavouriteToggle={() => handleFavouriteToggle(gig.event_id)}
-        />
-      ))}
+      <div>
+        <Link to="/">Home</Link>
+        </div>
+        <div>
+        <Link to="/LogIn">Login</Link>
       </div>
+        <h1> Welcome to Gig Listings!</h1>
+        <div id="container" className="spinner-target"></div>
+        {sortedGigData.map((gig)=> (
+          <Gig
+          key={gig.event_id}
+          gig={gig}
+          isFavourited={favouriteGigs.includes(gig.event_id)}
+          handleFavouriteToggle={() => handleFavouriteToggle(gig.event_id)}
+          />
+        ))}
+        <Routes>
+        <Route path="/login" element={<LogIn />} />
+        </Routes>
+        </div>
+
+      
   );
-      }
+      
+};
 
 export default App;
